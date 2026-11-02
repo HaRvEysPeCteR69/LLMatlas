@@ -392,4 +392,4 @@ Contributions, bug reports, and suggestions are welcome.
 ## License
 
 License to be determined.
-## MADE WITH LOVE % EFFORT <3
+  CURRENTLY IN DEVELOPMENT
