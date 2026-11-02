@@ -180,7 +180,7 @@ export default function DashboardPage() {
                 <Server size={17} />
                 <h2>Model registry</h2>
               </div>
-              <p>Models currently available to ModelBench AI.</p>
+              <p>Models currently available to LLMatlas.</p>
             </div>
 
             <span className="text-xs text-slate-500">

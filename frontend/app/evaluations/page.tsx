@@ -946,7 +946,7 @@ export default function EvaluationsPage() {
         </section>
 
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/5 pt-5 text-xs text-slate-500">
-          <span>ModelBench AI</span>
+          <span>LLMatlas</span>
           <span>LLM Evaluation Engine · PostgreSQL persistence</span>
         </div>
       </div>

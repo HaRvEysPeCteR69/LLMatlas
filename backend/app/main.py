@@ -19,7 +19,7 @@ from app.models import BenchmarkRun, Comparison, Evaluation
 
 
 app = FastAPI(
-    title="ModelBench AI",
+    title="LLMatlas",
     description="LLM benchmarking and evaluation platform",
     version="0.7.0",
 )
@@ -280,7 +280,7 @@ def evaluation_to_dict(item: Evaluation):
 async def health_check():
     return {
         "status": "healthy",
-        "service": "modelbench-api",
+        "service": "llmatlas-api",
         "version": "0.7.0",
     }
 

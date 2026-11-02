@@ -69,7 +69,7 @@ export default function AppShell({
 
           <span>
             <strong>
-              ModelBench <i>AI</i>
+              LLMatlas <i>AI</i>
             </strong>
             <small>LLM EVALUATION PLATFORM</small>
           </span>
@@ -113,14 +113,14 @@ export default function AppShell({
               <span className="status-dot online" />
               Local workspace
             </div>
-            <small>ModelBench environment</small>
+            <small>LLMatlas environment</small>
           </div>
 
           <div className="profile">
             <div className="avatar">M</div>
 
             <div className="profile-copy">
-              <strong>ModelBench AI</strong>
+              <strong>LLMatlas</strong>
               <small>Developer workspace</small>
             </div>
 
@@ -133,7 +133,7 @@ export default function AppShell({
         <header className="topbar">
           <div className="mobile-brand">
             <BrainCircuit size={19} />
-            <strong>ModelBench AI</strong>
+            <strong>LLMatlas</strong>
           </div>
 
           <div className="breadcrumb">
@@ -175,7 +175,7 @@ export default function AppShell({
 
           <footer className="dashboard-footer">
             <span>
-              ModelBench AI <i>·</i> LLM Benchmarking & Evaluation
+              LLMatlas <i>·</i> LLM Benchmarking & Evaluation
             </span>
 
             <span>

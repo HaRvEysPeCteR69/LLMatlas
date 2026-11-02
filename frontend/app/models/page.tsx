@@ -145,7 +145,7 @@ export default function ModelRegistryPage() {
       setError(
         err instanceof Error
           ? err.message
-          : "Unable to connect to the ModelBench API."
+          : "Unable to connect to the LLMatlas API."
       );
     } finally {
       setLoading(false);

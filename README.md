@@ -1,8 +1,8 @@
-# ModelBench AI
+# LLMatlas
 
 **An open-source LLM benchmarking, evaluation, and performance analysis platform.**
 
-ModelBench AI is a full-stack platform designed to benchmark, compare, and evaluate Large Language Models across multiple providers. It combines model execution, performance measurement, structured evaluation, and experiment tracking in a unified engineering environment.
+LLMatlas is a full-stack platform designed to benchmark, compare, and evaluate Large Language Models across multiple providers. It combines model execution, performance measurement, structured evaluation, and experiment tracking in a unified engineering environment.
 
 The goal is to make LLM experimentation reproducible, measurable, and easier to analyse.
 
@@ -115,7 +115,7 @@ The goal is to make LLM experimentation reproducible, measurable, and easier to 
 ## Project Structure
 
 ```text
-ModelBenchAI/
+LLMatlas/
 │
 ├── backend/
 │   ├── app/
@@ -180,8 +180,8 @@ Install the following:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/HaRvEysPeCteR69/ModelBenchAI.git
-cd ModelBenchAI
+git clone https://github.com/HaRvEysPeCteR69/LLMatlas.git
+cd LLMatlas
 ```
 
 ### 2. Configure environment variables
@@ -272,7 +272,7 @@ Backend:
 Open another terminal:
 
 ```bash
-cd ~/Projects/ModelBenchAI/frontend
+cd ~/Projects/LLMatlas/frontend
 npm install
 npm run dev
 ```
@@ -303,7 +303,7 @@ Interactive API documentation is available through FastAPI Swagger at `/docs`.
 
 ## Benchmark Metrics
 
-ModelBench AI currently tracks:
+LLMatlas currently tracks:
 
 | Metric | Description |
 |---|---|
@@ -370,7 +370,7 @@ LLM-based evaluation is subject to judge-model bias and inconsistency. Scores sh
 
 ## Current Project Status
 
-ModelBench AI is under active development.
+LLMatlas is under active development.
 
 The current implementation supports local model execution through Ollama, benchmark execution, multi-model comparison, rubric-based LLM evaluation, and PostgreSQL persistence.
 

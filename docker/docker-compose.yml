@@ -2,7 +2,7 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: modelbench-postgres
+    container_name: llmatlas-postgres
     restart: unless-stopped
     environment:
       POSTGRES_DB: modelbench

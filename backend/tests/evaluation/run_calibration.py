@@ -93,7 +93,7 @@ def check_expectations(case, result):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Run ModelBench AI judge calibration."
+        description="Run LLMatlas judge calibration."
     )
 
     parser.add_argument(
