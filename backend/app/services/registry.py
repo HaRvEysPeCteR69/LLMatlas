@@ -1,5 +1,11 @@
 from typing import Optional
 
+from app.core.config import (
+    MOCK_PROVIDER_ENABLED,
+    OLLAMA_API_KEY,
+    OLLAMA_BASE_URL,
+    OLLAMA_ENABLED,
+)
 from app.services.base import ModelProvider
 from app.services.mock import MockProvider
 from app.services.ollama import OllamaProvider
@@ -8,19 +14,19 @@ from app.services.ollama import OllamaProvider
 class ProviderRegistry:
 
     def __init__(self):
-        self.providers: dict[str, ModelProvider] = {
-            "mock": MockProvider(),
-            "ollama": OllamaProvider(),
-        }
+        self.providers: dict[str, ModelProvider] = {}
+
+        if MOCK_PROVIDER_ENABLED:
+            self.providers["mock"] = MockProvider()
+
+        if OLLAMA_ENABLED:
+            self.providers["ollama"] = OllamaProvider(
+                base_url=OLLAMA_BASE_URL,
+                api_key=OLLAMA_API_KEY,
+            )
 
     @staticmethod
     def classify_model(model: dict) -> list:
-        """
-        Provide heuristic capability labels.
-
-        These are metadata hints, not benchmark-verified capabilities.
-        """
-
         name = model.get("name", "").lower()
         family = model.get("family", "").lower()
 
@@ -47,11 +53,6 @@ class ProviderRegistry:
 
     @staticmethod
     def enrich_model(model: dict) -> dict:
-        """
-        Normalize provider model metadata while preserving
-        the existing API fields.
-        """
-
         enriched = dict(model)
 
         enriched.setdefault("id", enriched.get("name"))
@@ -62,18 +63,13 @@ class ProviderRegistry:
             enriched.get("configured", False)
         )
 
-        enriched["parameter_size"] = enriched.get(
-            "parameter_size"
-        )
-
+        enriched["parameter_size"] = enriched.get("parameter_size")
         enriched["quantization_level"] = enriched.get(
             "quantization_level"
         )
-
         enriched["family"] = enriched.get("family")
 
         size_bytes = enriched.get("size")
-
         enriched["size_bytes"] = size_bytes
 
         if isinstance(size_bytes, (int, float)):
@@ -100,44 +96,41 @@ class ProviderRegistry:
         return provider
 
     async def resolve_model(self, model_identifier: str):
-        """
-        Resolve a model using either its ID or display name.
-        """
+        matches = []
 
         for provider_name, provider in self.providers.items():
             try:
                 models = await provider.list_models()
 
                 for model in models:
-                    model_id = model.get("id")
-                    model_name = model.get("name")
-
                     if (
-                        model_identifier == model_id
-                        or model_identifier == model_name
+                        model_identifier == model.get("id")
+                        or model_identifier == model.get("name")
                     ):
-                        return provider_name, provider
+                        matches.append((provider_name, provider))
 
             except Exception:
                 continue
 
-        raise ValueError(
-            f"Model '{model_identifier}' was not found "
-            "in any registered provider."
-        )
+        if not matches:
+            raise ValueError(
+                f"Model '{model_identifier}' was not found "
+                "in any available provider."
+            )
+
+        if len(matches) > 1:
+            raise ValueError(
+                f"Model '{model_identifier}' exists in multiple "
+                "providers. Use a unique model identifier."
+            )
+
+        return matches[0]
 
     async def list_all_models(
         self,
         provider_filter: Optional[str] = None,
         capability_filter: Optional[str] = None,
     ) -> list:
-        """
-        Discover and enrich models across registered providers.
-
-        Optional filters:
-        - provider_filter: ollama, mock, etc.
-        - capability_filter: general, coding, reasoning, vision.
-        """
 
         models = []
 
@@ -174,14 +167,7 @@ class ProviderRegistry:
 
         return models
 
-    async def get_model(
-        self,
-        model_identifier: str,
-    ) -> dict:
-        """
-        Retrieve enriched metadata for one installed model.
-        """
-
+    async def get_model(self, model_identifier: str) -> dict:
         models = await self.list_all_models()
 
         for model in models:
@@ -196,10 +182,6 @@ class ProviderRegistry:
         )
 
     async def get_registry_summary(self) -> dict:
-        """
-        Return model registry statistics.
-        """
-
         models = await self.list_all_models()
 
         providers = sorted({
