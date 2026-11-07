@@ -202,7 +202,7 @@ ENVIRONMENT=development
 
 Use the same password in both variables.
 
-Never commit `.env` or expose database credentials publicly.
+Never commit `.env` or expose the database credentials publicly.
 
 ### 3. Start PostgreSQL
 
