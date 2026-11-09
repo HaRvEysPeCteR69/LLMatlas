@@ -10,6 +10,7 @@ The goal is to make LLM experimentation reproducible, measurable, and easier to 
 
 ## Features
 
+
 ### Benchmark-Runner
 - Execute prompts against configured language models.
 - Configure repeated benchmark runs.
@@ -27,7 +28,7 @@ The goal is to make LLM experimentation reproducible, measurable, and easier to 
 - Track success and failure rates.
 - Store comparison experiments and their individual runs.
 
-### LLM Evaluation
+### LLM-Evaluation
 - Evaluate generated responses using an LLM-as-a-Judge approach.
 - Support optional reference answers.
 - Score responses across five evaluation dimensions:
