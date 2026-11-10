@@ -40,7 +40,7 @@ The goal is to make LLM experimentation reproducible, measurable, and easier to 
 - Generate weighted evaluation scores.
 - Store evaluation reasoning, strengths, weaknesses, and feedback.
 
-### Experiment Persistence
+### Experiment-Persistence
 - PostgreSQL-backed storage.
 - SQLAlchemy ORM.
 - Alembic database migrations.
