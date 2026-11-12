@@ -48,7 +48,7 @@ The goal is to make LLM experimentation reproducible, measurable, and easier to 
 
 ---
 
-## Technology Stack
+## Technology-Stack
 
 | Layer | Technologies |
 |---|---|
