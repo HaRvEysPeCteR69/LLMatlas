@@ -20,7 +20,7 @@ The goal is to make LLM experimentation reproducible, measurable, and easier to 
 - Record successful and failed executions.
 - Maintain benchmark execution history.
 
-### Model Comparison
+### Model-Comparison
 - Compare multiple models using the same prompt.
 - Execute repeated runs for each model.
 - Compare average and median latency.
