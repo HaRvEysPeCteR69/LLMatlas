@@ -393,4 +393,4 @@ Contributions, bug reports, and suggestions are welcome.
 ## License
 
 License to be determined.
-CURRENTLY IN DEVELOPMENT
+CURRENTLY IN DEVELOPMENT.
