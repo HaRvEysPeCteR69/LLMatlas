@@ -10,7 +10,6 @@ The goal is to make LLM experimentation reproducible, measurable, and easier to 
 
 ## Features
 
-
 ### Benchmark-Runner
 - Execute prompts against configured language models.
 - Configure repeated benchmark runs.
