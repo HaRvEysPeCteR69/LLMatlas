@@ -10,6 +10,7 @@ The goal is to make LLM experimentation reproducible, measurable, and easier to 
 
 ## Features
 
+
 ### Benchmark-Runner
 - Execute prompts against configured language models.
 - Configure repeated benchmark runs.
@@ -61,7 +62,7 @@ The goal is to make LLM experimentation reproducible, measurable, and easier to 
 | Initial Local Model | Qwen 2.5 3B |
 | API Communication | HTTP / REST |
 
-### Planned Technologies
+### Planned-Technologies
 
 - LangGraph for evaluation analysis and orchestration.
 - Redis for caching and task coordination.
